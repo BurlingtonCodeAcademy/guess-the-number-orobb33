@@ -33,16 +33,18 @@ async function start() {
   let compGuess = getSmartInt(min, max);
 
   let numAsk = await ask("Is it " + compGuess + " ?\n");
-  
+numAsk = trim(numAsk);
+
 
   while (numAsk === "N") {
     let userDir = await ask("Is it higher 'H' or lower 'L' ?\n");
-    userDir = trim(userDir);
+    //userDir = trim(userDir);
     if (userDir === "H") {
       min = compGuess;
       compGuess = getSmartInt(compGuess, max);
       numAsk = await ask("Is it " + compGuess + " ?\n");
     }
+   // userDir = trim(userDir);
     if (userDir === "L") {
       max = compGuess;
       compGuess = getSmartInt(min, compGuess);
@@ -83,9 +85,9 @@ async function start() {
   let compGuessA = getSmartIntA(newMin, newMax);
   compGuessA = +compGuessA
 
-  let numAskA = await ask("Is it " + compGuessA + " ?");
+  let numAskA = await ask("Is it " + compGuessA + " ?\n");
 //first number guess using smartint
-
+numAskA = trim(numAskA)
 //second round number guesses
   while (numAskA === "N") {
     let userDir = await ask("Is it higher 'H' or lower 'L' ?\n");
